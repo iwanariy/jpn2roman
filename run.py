@@ -10,16 +10,20 @@ dotenv.load_dotenv(".env")
 URL = 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana'
 
 
-if __name__ == '__main__':
-    search_word = u"山田太郎"
-
+def get_result_xml():
     # Get APPID
     appid = os.environ['APPID']
 
     # Create payload
     payload = {'appid': appid, 'sentence': search_word}
 
-    r = requests.post(URL, data=payload)
+    return requests.post(URL, data=payload)
+
+
+if __name__ == '__main__':
+    search_word = u"山田太郎"
+
+    r = get_result_xml()
 
     # Show responce
     # print u"text: %s" % r.text
