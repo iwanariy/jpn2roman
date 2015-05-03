@@ -10,7 +10,7 @@ dotenv.load_dotenv(".env")
 URL = 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana'
 
 
-def get_result_xml(search_keyword):
+def _get_result_xml(search_keyword):
     # Get APPID
     appid = os.environ['APPID']
 
@@ -26,7 +26,7 @@ def get_result_xml(search_keyword):
     return responce
 
 
-def extract_data_from_xml(responce):
+def _extract_data_from_xml(responce):
     # from xml.dom.minidom import parse, parseString
     doml = parseString(responce.content)
 
@@ -48,10 +48,17 @@ def extract_data_from_xml(responce):
     return row
 
 
+def get_roman_from_jpn(search_keyword):
+    responce = _get_result_xml(search_keyword)
+
+    row = _extract_data_from_xml(responce)
+
+    return row
+
+
 if __name__ == '__main__':
     search_keyword = u"山田太郎"
 
-    responce = get_result_xml(search_keyword)
-    row = extract_data_from_xml(responce)
+    row = get_roman_from_jpn(search_keyword)
 
     print row
