@@ -54,11 +54,3 @@ def get_roman_from_jpn(search_keyword):
     row = _extract_data_from_xml(responce)
 
     return row
-
-
-if __name__ == '__main__':
-    search_keyword = u"山田太郎"
-
-    row = get_roman_from_jpn(search_keyword)
-
-    print row
