@@ -2,18 +2,17 @@
 ---
 
 Yahoo!デベロッパーネットワークさんの「ルビ振り」を使って、日本語をローマ字に変換してみた。  
-Webを叩く部分には、requestsを使っている。  
+（Webを叩く部分には、requestsを使用）
 
 
 ## Installation
 ```
-git clone 
 pip install -r requirements.txt
 ```
 
 
 ## 準備
- * .envを作成し、AppIDを格納する
+.envを作成し、AppIDを格納する。
 ```
 APPID="Your application ID"
 ```
@@ -23,13 +22,13 @@ APPID="Your application ID"
 ```
 python run.sh
 ```
-山田太郎
-* -> ('山田', 'やまだ', 'yamada')
-* -> ('太郎', 'たろう', 'tarou')
+山田太郎  
+-> ('山田', 'やまだ', 'yamada')  
+-> ('太郎', 'たろう', 'tarou')
 
 
 ## 制限
-* APIの制限上、一日50,000件まで使用可能（2015/5/2現在）
+* APIの制限上、一日50,000件まで検索可能（2015/5/2現在）
 
 
 ## 注意点
