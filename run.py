@@ -17,27 +17,41 @@ def get_result_xml():
     # Create payload
     payload = {'appid': appid, 'sentence': search_word}
 
-    return requests.post(URL, data=payload)
-
-
-if __name__ == '__main__':
-    search_word = u"山田太郎"
-
-    r = get_result_xml()
+    responce = requests.post(URL, data=payload)
 
     # Show responce
-    # print u"text: %s" % r.text
-    # print u"encoding: %s" % r.encoding
+    # print u"text: %s" % responce.text
+    # print u"encoding: %s" % responce.encoding
 
+    return responce
+
+
+def extract_data_from_xml(responce):
     # from xml.dom.minidom import parse, parseString
-    doml = parseString(r.content)
+    doml = parseString(responce.content)
 
     # Get Word DOM
     results = doml.getElementsByTagName('Result')
     word_lists = results.item(0).getElementsByTagName('WordList')
     words = word_lists.item(0).getElementsByTagName('Word')
 
+    # Return
+    row = []
+
     for word in words:
-        print word.getElementsByTagName('Surface').item(0).childNodes[0].data
-        print word.getElementsByTagName('Furigana').item(0).childNodes[0].data
-        print word.getElementsByTagName('Roman').item(0).childNodes[0].data
+        surface = word.getElementsByTagName('Surface').item(0).childNodes[0].data
+        furigana = word.getElementsByTagName('Furigana').item(0).childNodes[0].data
+        roman = word.getElementsByTagName('Roman').item(0).childNodes[0].data
+
+        row.append((surface, furigana, roman))
+
+    return row
+
+
+if __name__ == '__main__':
+    search_word = u"山田太郎"
+
+    responce = get_result_xml()
+    row = extract_data_from_xml(responce)
+
+    print row
