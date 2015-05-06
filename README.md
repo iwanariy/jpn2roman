@@ -1,4 +1,4 @@
-日本語ローマ字変換
+日本語ローマ字変換[![Build Status](https://travis-ci.org/narikin/jpn2roman.svg?branch=master)](https://travis-ci.org/narikin/jpn2roman)
 ---
 
 Yahoo!デベロッパーネットワークさんの「ルビ振り」を使って、日本語をローマ字に変換してみた。  
