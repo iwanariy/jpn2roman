@@ -1,4 +1,4 @@
-#!/bin/python2.7
+#!/usr/bin/python
 # coding: utf-8
 from jpn2roman.jpn2roman import get_roman_from_jpn
 
