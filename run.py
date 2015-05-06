@@ -1,6 +1,6 @@
 #!/bin/python2.7
 # coding: utf-8
-from jpn2roman.converter import get_roman_from_jpn
+from jpn2roman.jpn2roman import get_roman_from_jpn
 
 
 def print_row(search_keyword, rows):
