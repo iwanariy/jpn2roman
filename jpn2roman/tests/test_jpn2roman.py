@@ -7,7 +7,7 @@ from jpn2roman.jpn2roman import get_roman_from_jpn
 class TestJpn2roman(unittest.TestCase):
 
     def setUp(self):
-        print 'setUp'
+        pass
 
     def test_hello_world(self):
         self.assertTrue(True)
