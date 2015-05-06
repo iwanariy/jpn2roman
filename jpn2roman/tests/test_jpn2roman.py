@@ -10,8 +10,7 @@ class TestJpn2roman(unittest.TestCase):
         pass
 
     def test_hello_world(self):
-        self.assertTrue(False)
-        # self.assertTrue(True)
+        self.assertTrue(True)
 
 
 if __name__ == "__main__":
