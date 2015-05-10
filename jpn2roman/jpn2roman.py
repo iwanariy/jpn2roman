@@ -39,9 +39,14 @@ def _extract_data_from_xml(responce):
     row = []
 
     for word in words:
-        surface = word.getElementsByTagName('Surface').item(0).childNodes[0].data
-        furigana = word.getElementsByTagName('Furigana').item(0).childNodes[0].data
-        roman = word.getElementsByTagName('Roman').item(0).childNodes[0].data
+        try:
+            surface = word.getElementsByTagName('Surface').item(0).childNodes[0].data
+            furigana = word.getElementsByTagName('Furigana').item(0).childNodes[0].data
+            roman = word.getElementsByTagName('Roman').item(0).childNodes[0].data
+        except:
+            surface = word.getElementsByTagName('Surface').item(0).childNodes[0].data
+            furigana = surface
+            roman = surface
 
         row.append((surface, furigana, roman))
 
